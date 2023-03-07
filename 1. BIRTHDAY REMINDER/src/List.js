@@ -1,18 +1,28 @@
 import React from 'react';
 
-const List = () => {
+const List = ({ id, image, name, age }) => {
+  // const { id, image, name, age } = item;
+  console.log(5);
   return (
-    <>
-      <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="..." />
-        <div class="card-body">
-          <p class="card-text">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
-        </div>
+    <div className="d-flex">
+      <div className="d-flex justify-content-center align-items-center m-5">
+        <img
+          src={image}
+          className="card-img-top"
+          alt="..."
+          style={{
+            borderRadius: "50%",
+            width: "75px",
+            height: "75px",
+            objectFit: "cover",
+          }}
+        />
       </div>
-    </>
+      <div className="card-body mt-5">
+        <p className="card-text text-center">{name}</p>
+        <p className="card-text text-center">{age}</p>
+      </div>
+    </div>
   );
 };
 
