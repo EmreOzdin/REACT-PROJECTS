@@ -3,9 +3,23 @@ import Loading from './Loading'
 import Tours from './Tours'
 // ATTENTION!!!!!!!!!!
 // I SWITCHED TO PERMANENT DOMAIN
-const url = 'https://course-api.com/react-tours-project'
+
+
 function App() {
-  return <h2>Tours Project Setup</h2>
+  const [loading, setLoading] = useState(true);
+  return (
+    <>
+      <h2>Our Tours</h2>
+      {loading ? (
+        <div>
+          <Loading />
+          <Tours loading={loading} setLoading={setLoading} />
+        </div>
+      ) : (
+        <Tours loading={loading} setLoading={setLoading} />
+      )}
+    </>
+  );
 }
 
 export default App
