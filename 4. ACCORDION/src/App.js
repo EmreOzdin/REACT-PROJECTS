@@ -1,8 +1,20 @@
 import React, { useState } from 'react';
 import data from './data';
-import SingleQuestion from './Question';
+import Question from "./Question";
+
 function App() {
-  return <h2>accordion project setup</h2>;
-}
+    return (
+      <div className="container d-flex">
+        <div className="">
+          <h1>Questionnaire</h1>
+        </div>
+        <div className="bg-danger">
+          {data?.map((item) => {
+            return <Question key={item.id} {...item} />;
+          })}
+        </div>
+      </div>
+    );
+  };
 
 export default App;
