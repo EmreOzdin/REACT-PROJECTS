@@ -11,7 +11,7 @@ function App() {
     <>
       <h2>Our Tours</h2>
       {loading ? (
-        <div>
+        <div >
           <Loading />
           <Tours loading={loading} setLoading={setLoading} />
         </div>
