@@ -6,13 +6,9 @@ function App() {
     return (
       <div className="container d-flex">
         <div className="">
-          <h1>Questionnaire</h1>
+          <h1>Questions And Answers About Login</h1>
         </div>
-        <div className="bg-danger">
-          {data?.map((item) => {
-            return <Question key={item.id} {...item} />;
-          })}
-        </div>
+        <Question data={data} />
       </div>
     );
   };

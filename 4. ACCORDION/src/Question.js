@@ -1,34 +1,52 @@
 import React, { useState } from 'react';
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
-const Question = ({ id, title, info }) => {
+
+const Question = ({ data }) => {
   const [isOpen, setIsOpen] = useState(true);
   const toggleId = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className="d-flex">
+    <>
       <div className="">
-        <h5>{title}</h5>
+        <div className="question-title">
+          {data?.map((item) => {
+            return (
+              <div className="accordion" id="accordionPanelsStayOpenExample">
+                <div className="accordion-item">
+                  <h2
+                    className="accordion-header"
+                    id="panelsStayOpen-headingOne"
+                  >
+                    <button
+                      className="accordion-button"
+                      type="button"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#panelsStayOpen-collapseOne"
+                      aria-expanded="true"
+                      aria-controls="panelsStayOpen-collapseOne"
+                    >
+                      {item.title}
+                    </button>
+                  </h2>
+                  <div
+                    id="panelsStayOpen-collapseOne"
+                    className="accordion-collapse collapse show"
+                    aria-labelledby="panelsStayOpen-headingOne"
+                  >
+                    <div className="accordion-body">
+                      <p>{item.info}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
-      <div className="d-flex">
-        {isOpen ? (
-          <div>
-            <button className="btn" onClick={toggleId}>
-              <AiOutlinePlus />
-            </button>
-          </div>
-        ) : (
-          <div className="">
-            <button className="btn" onClick={toggleId}>
-              <AiOutlineMinus />
-            </button>
-            <p>{info}</p>
-          </div>
-        )}
-      </div>
-    </div>
+    </>
   );
 };
 
