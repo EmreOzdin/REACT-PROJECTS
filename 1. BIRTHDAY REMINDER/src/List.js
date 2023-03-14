@@ -1,28 +1,21 @@
 import React from 'react';
 
-const List = ({ id, image, name, age }) => {
-  // const { id, image, name, age } = item;
-  console.log(5);
+const List = ({ people }) => {
   return (
-    <div className="d-flex">
-      <div className="d-flex justify-content-center align-items-center m-5">
-        <img
-          src={image}
-          className="card-img-top"
-          alt="..."
-          style={{
-            borderRadius: "50%",
-            width: "75px",
-            height: "75px",
-            objectFit: "cover",
-          }}
-        />
-      </div>
-      <div className="card-body mt-5">
-        <p className="card-text text-center">{name}</p>
-        <p className="card-text text-center">{age}</p>
-      </div>
-    </div>
+    <>
+      {people.map((person) => {
+        const { id, name, age, image } = person;
+        return (
+          <article key={id} className='person'>
+            <img src={image} alt={name} />
+            <div>
+              <h4>{name}</h4>
+              <p>{age} years</p>
+            </div>
+          </article>
+        );
+      })}
+    </>
   );
 };
 
